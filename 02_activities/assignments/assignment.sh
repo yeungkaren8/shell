@@ -11,6 +11,7 @@ set -x
 
 mkdir analysis output
 touch README.md
+echo "# Project Name: DSI Consulting Inc." > README.md
 touch analysis/main.py
 
 # download client data
@@ -45,6 +46,7 @@ cp raw/event*.log processed/event_logs
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
 rm -f raw/*ipaddr* # -f to suppress output
 rm -f processed/user_logs/*ipaddr*
+# rm -rf ./data # fixed typo from merge, but commented it out to preserve the data folder in case it was required for autograder (as per Keli's reply on Aidan's thread in #dc-help on Slack)
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 ls -R1 processed/ >> inventory.txt # ls -R lists all subdirectories recursively, -1 lists 1 file per line
